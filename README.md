@@ -26,30 +26,39 @@ wave is varied according to the instantaneous amplitude of the message signal.
 
 ### Programme:
 ```
-import numpy as np 
-import matplotlib.pyplot as plt 
-Am = 16.1
-Fm = 550
-B = 6.3 
-Ac = 32.2 
-Fc = 5500 
-Fs = 3150000 
-t = np.arange(0, 2/Fm, 1/Fs) 
-em = Am * np.sin(2 * np.pi * Fm * t) 
-plt.subplot(3, 1, 1) 
-plt.plot(t, em) 
-plt.grid() 
-ec = Ac * np.sin(2 * np.pi * Fc * t) 
-plt.subplot(3, 1, 2) 
-plt.plot(t, ec) 
-plt.grid() 
-efm = Ac * np.cos((2*np.pi*Fc*t) + ( B*np.sin(2*np.pi*Fm*t))) 
-plt.subplot(3, 1, 3) 
-plt.plot(t, efm) 
-plt.grid() 
-plt.tight_layout() 
-plt.show() 
+import numpy as np
+import matplotlib.pyplot as plt
+Am = 6.3
+fm = 504
+Ac = 12.6
+fc = 5040
+fs = 504000
+t = np.arange(0, 3/fm, 1/fs)
+m = Am * np.cos(2 * np.pi * fm * t)
+plt.subplot(3, 1, 1)
+plt.plot(t, m)
+c = Ac * np.cos(2 * np.pi * fc * t)
+plt.subplot(3, 1, 2)
+plt.plot(t, c)
+efm = Ac * np.cos((2 * np.pi * fc * t) + 5.1 * np.sin(2 * np.pi * fm * t))
+plt.subplot(3, 1, 3)
+plt.plot(t, efm)
+plt.tight_layout()
+plt.show()
 ```
+### Tabulation :
+<img width="777" height="622" alt="image" src="https://github.com/user-attachments/assets/c0599e67-ddd4-4fb3-be65-50f1f0de0199" />
+
+```
+▲f  = Fmax – Fc
+       = 8333.3 - 5000
+       = 3333.3
+ß = ▲f/Fm
+   = 3333.3 / 494
+   = 6.6
+
+```
+
 ### Output:
 <img width="630" height="469" alt="exp9 graph" src="https://github.com/user-attachments/assets/ab3f2773-b577-4709-b57d-cf17d3a32466" />
 
